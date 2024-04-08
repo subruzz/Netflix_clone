@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/screens/home.dart';
+import 'package:netflix_clone/screens/more_screen.dart';
 import 'package:netflix_clone/screens/new_hot.dart';
-import 'package:netflix_clone/widgets/search_screen/search.dart';
+import 'package:netflix_clone/screens/search.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -15,7 +16,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> screens = const [
     HomePage(),
     SearchPage(),
-    NewAndHotPage()
+    NewAndHotPage(),
+    MoreScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -39,8 +41,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.video_library), label: "New&hot"),
 
-            // BottomNavigationBarItem(
-            //     icon: Icon(Icons.person), label: "My Netflix"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.more_horiz_rounded), label: "More"),
           ],
         ),
         body: screens.elementAt(index));

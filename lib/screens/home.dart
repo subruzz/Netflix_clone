@@ -1,15 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:netflix_clone/common/colors.dart';
-import 'package:netflix_clone/common/utils.dart';
+import 'package:netflix_clone/models/movie_model.dart';
 import 'package:netflix_clone/services/api_service.dart';
 import 'package:netflix_clone/widgets/home_screen/carousal.dart';
 import 'package:netflix_clone/widgets/home_screen/continue_watchile_tile.dart';
 import 'package:netflix_clone/widgets/home_screen/movie_tile.dart';
 import 'package:netflix_clone/widgets/home_screen/numbered_tile.dart';
-import 'package:netflix_clone/widgets/sub_list_heading.dart';
+import 'package:netflix_clone/widgets/common/sub_list_heading.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,8 +15,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int indexNum = 0;
-  
+  List<String> continueWatching = [
+    'https://images-cdn.ubuy.co.in/63ef0a397f1d781bea0a2464-star-wars-rogue-one-movie-poster.jpg',
+    'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/cream-white-film-poster-design-template-5261b394ee6c110057a857d40ede9fdd_screen.jpg?ts=1708101061',
+    'https://m.media-amazon.com/images/I/71Jxq2p5YWL._AC_UF1000,1000_QL80_.jpg'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,7 +138,9 @@ class _HomePageState extends State<HomePage> {
               fontSize: 20,
               title: 'Continue Watching',
             ),
-            const ContinueWatchingTile(),
+            ContinueWatchingTile(
+              continueWatcing: continueWatching,
+            ),
             const SubListHeading(
               fontSize: 20,
               title: 'Top 10 In India',

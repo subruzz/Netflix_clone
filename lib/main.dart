@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.black)
               .copyWith(background: Colors.black),
           useMaterial3: true,
-          fontFamily: GoogleFonts.ptSans().fontFamily),
+          fontFamily: GoogleFonts.roboto().fontFamily),
       home: const SplashScreen(),
     );
   }

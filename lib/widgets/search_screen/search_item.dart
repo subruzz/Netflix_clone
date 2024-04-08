@@ -7,7 +7,7 @@ import 'package:netflix_clone/models/movie_model.dart';
 class SearchItem extends StatelessWidget {
   const SearchItem({super.key, required this.movie});
   final Movies movie;
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,12 +19,13 @@ class SearchItem extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                movie.posterPath.isNotEmpty?
                 Image.network(
                     width: 130,
                     fit: BoxFit.cover,
                     height: 70,
-                    '$imgeUrl${movie.posterPath}'):const SizedBox(),
+                    movie.posterPath.isNotEmpty
+                        ? '$imgeUrl${movie.posterPath}'
+                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS-CcVpgxyMm8Npubt7lqbGQlKG9NjJaIUBqkQSqkhSQ&s'),
                 const SizedBox(
                   width: 15,
                 ),

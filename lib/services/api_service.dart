@@ -24,7 +24,7 @@ class ApiServices {
         return Movies.fromJson(movieData);
       }).toList();
       poplularMovies = movies;
-      print(poplularMovies);
+
       return movies;
     } else {
       throw Exception('Error Loading Movies ');
@@ -94,28 +94,7 @@ class ApiServices {
       List<Movies> movies = movieListData.map((movieData) {
         return Movies.fromJson(movieData);
       }).toList();
-      for (var i in movies) {
-        for (var movie in movies) {
-          print('Adult: ${movie.adult}');
-          print('Backdrop Path: ${movie.backdropPath}');
-          print('ID: ${movie.id}');
-          print('Title: ${movie.title}');
-          print('Original Language: ${movie.originalLanguage}');
-          print('Original Title: ${movie.originalTitle}');
-          print('Overview: ${movie.overview}');
-          print('Poster Path: ${movie.posterPath}');
-          print('Genre IDs: ${movie.genreIds}');
-          print('Popularity: ${movie.popularity}');
-          print('Release Date: ${movie.releaseDate}');
-          print('Video: ${movie.video}');
-          print('Vote Average: ${movie.voteAverage}');
-          print('Vote Count: ${movie.voteCount}');
-          print('--------------------');
-        }
-      }
       searchItems = movies;
-      print(searchItems);
-
       return movies;
     } else {
       throw Exception('Error Loading Movies');
