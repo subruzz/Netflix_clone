@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 class UserProfileItem extends StatefulWidget {
-  const UserProfileItem({super.key, required this.color, required this.name});
+  const UserProfileItem(
+      {super.key, required this.color, required this.name, this.screenChange});
   final String name;
   final Color color;
-
+  final Function? screenChange;
   @override
   State<UserProfileItem> createState() => _UserProfileItemState();
 }
 
 class _UserProfileItemState extends State<UserProfileItem> {
-  bool selected = false ;
+  bool selected = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,6 +21,9 @@ class _UserProfileItemState extends State<UserProfileItem> {
         children: [
           GestureDetector(
             onTap: () {
+              if (widget.screenChange != null) {
+                widget.screenChange!(); 
+              }
               setState(() {
                 selected = !selected;
               });

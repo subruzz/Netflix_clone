@@ -1,11 +1,11 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/common/colors.dart';
+import 'package:netflix_clone/common/utils.dart';
 
 class ContinueWatchingTile extends StatelessWidget {
-  const ContinueWatchingTile({super.key, required this.continueWatcing});
-  final List<String> continueWatcing;
+  const ContinueWatchingTile({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -13,7 +13,7 @@ class ContinueWatchingTile extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: continueWatcing.length,
+        itemCount: continueWatching.length,
         itemBuilder: (ctx, index) => Container(
             width: 130,
             height: 100,
@@ -23,9 +23,8 @@ class ContinueWatchingTile extends StatelessWidget {
                 Image.network(
                   width: 200,
                   height: 160,
-        
                   fit: BoxFit.cover,
-                  continueWatcing[index],
+                  continueWatching[index],
                 ),
                 const LinearProgressIndicator(
                   color: Colors.red,

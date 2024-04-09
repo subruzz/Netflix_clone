@@ -78,7 +78,6 @@ class _MoreScreenState extends State<MoreScreen> {
             ),
             Container(
               padding: const EdgeInsets.all(20),
-              height: 380,
               width: double.infinity,
               color: secColor,
               child: Flex(
@@ -94,14 +93,14 @@ class _MoreScreenState extends State<MoreScreen> {
                   ),
                   const Text(
                       "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididuntut labore et dolore magna aliqua.",
-                      style: TextStyle(fontSize: 17)),
+                      style: TextStyle(fontSize: 14)),
                   const SizedBox(
                     height: 10,
                   ),
                   const Text(
                     'Terms & Conditions',
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 13,
                         decoration: TextDecoration.underline,
                         decorationColor: Colors.white,
                         decorationThickness: 3),
@@ -112,7 +111,7 @@ class _MoreScreenState extends State<MoreScreen> {
                   Row(
                     children: [
                       const Expanded(
-                        flex: 2,
+                        flex: 3,
                         child: SizedBox(
                           height: 45,
                           child: TextField(
@@ -125,7 +124,7 @@ class _MoreScreenState extends State<MoreScreen> {
                         width: 15,
                       ),
                       SizedBox(
-                        height: 45,
+                        height: 40,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -137,7 +136,7 @@ class _MoreScreenState extends State<MoreScreen> {
                               'Copy Link',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 17,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.w600),
                             )),
                       )
@@ -151,17 +150,17 @@ class _MoreScreenState extends State<MoreScreen> {
                     children: [
                       const FaIcon(
                         FontAwesomeIcons.whatsapp,
-                        size: 40,
+                        size: 30,
                         color: Colors.green,
                       ),
                       const FaIcon(
                         FontAwesomeIcons.facebook,
-                        size: 40,
+                        size: 30,
                         color: Colors.blueAccent,
                       ),
                       const FaIcon(
                         FontAwesomeIcons.envelope,
-                        size: 40,
+                        size: 30,
                         color: Color.fromARGB(255, 180, 106, 106),
                       ),
                       IconButton(
@@ -169,7 +168,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           icon: const Icon(
                             Icons.more_horiz_outlined,
                             color: Colors.white,
-                            size: 40,
+                            size: 30,
                           ))
                     ],
                   ),
@@ -181,12 +180,14 @@ class _MoreScreenState extends State<MoreScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('✔️ My List'),
+                  Text(
+                    '✔️ My List',
+                  ),
                   Divider(),
-                  Text('App Settings'),
-                  Text('Account'),
-                  Text('Help'),
-                  Text('Sign Out')
+                  Text('App Settings', style: TextStyle(fontSize: 17)),
+                  Text('Account', style: TextStyle(fontSize: 17)),
+                  Text('Help', style: TextStyle(fontSize: 17)),
+                  Text('Sign Out', style: TextStyle(fontSize: 17))
                 ],
               ),
             )

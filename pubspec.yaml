@@ -29,7 +29,9 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   bordered_text: ^2.0.0
+  cached_network_image: ^3.3.1
   carousel_slider: ^4.2.1
+  connectivity_plus: ^6.0.2
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
@@ -37,6 +39,7 @@ dependencies:
   google_fonts: ^6.2.1
   http: ^1.2.1
   lottie: ^3.1.0
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_lints: ^3.0.0

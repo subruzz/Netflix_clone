@@ -22,12 +22,14 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.white),
           ),
           textTheme: const TextTheme(
-              bodyLarge: TextStyle(color: Colors.white, fontSize: 24),
-              bodyMedium: TextStyle(color: Colors.white, fontSize: 20)),
+            bodyLarge: TextStyle(color: Colors.white, fontSize: 26),
+            bodyMedium: TextStyle(color: Colors.white, fontSize: 20),
+            bodySmall: TextStyle(color: Colors.white, fontSize: 18,),
+          ),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.black)
               .copyWith(background: Colors.black),
           useMaterial3: true,
-          fontFamily: GoogleFonts.roboto().fontFamily),
+          fontFamily: GoogleFonts.montserrat().fontFamily),
       home: const SplashScreen(),
     );
   }

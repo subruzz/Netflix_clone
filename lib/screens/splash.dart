@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:netflix_clone/models/movie_model.dart';
 import 'package:netflix_clone/models/tv_series_model.dart';
+import 'package:netflix_clone/screens/profile_sceen.dart';
 import 'package:netflix_clone/services/api_service.dart';
 
 import 'package:netflix_clone/widgets/bottom_nav.dart';
@@ -18,20 +19,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    getData().then((_) {
-      Future.delayed(const Duration(seconds: 3)).then((_) {
+    Future.delayed(const Duration(seconds: 3)).then((_) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const BottomNavBar()));
+          MaterialPageRoute(builder: (ctx) => const ProfileScreen()));
     });
-    });
-    
-  }
-
-  Future<void> getData() async {
-    poplularMovies = await ApiServices.getPopularMovies();
-    topRatedMovies = await ApiServices.getTopRated();
-    tvSeries = await ApiServices.getTvSeries();
-    upcomingMovies = await ApiServices.getUpcomingMovies();
   }
 
   @override

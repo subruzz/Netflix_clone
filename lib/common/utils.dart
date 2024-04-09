@@ -11,9 +11,8 @@ const tvSeriesEndPoint = 'trending/tv/day';
 const searchEndPoint = 'search/movie?query=';
 const kBackGroundColor = Colors.black;
 const imgeUrl = 'https://image.tmdb.org/t/p/w500';
-// class ApiServices{
-//   static Future(){$key
-
-
-//   }
-// }
+List<String> continueWatching = [
+  'https://images-cdn.ubuy.co.in/63ef0a397f1d781bea0a2464-star-wars-rogue-one-movie-poster.jpg',
+  'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/cream-white-film-poster-design-template-5261b394ee6c110057a857d40ede9fdd_screen.jpg?ts=1708101061',
+  'https://m.media-amazon.com/images/I/71Jxq2p5YWL._AC_UF1000,1000_QL80_.jpg'
+];
