@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/models/movie_model.dart';
 import 'package:netflix_clone/models/top_india.dart';
+import 'package:netflix_clone/models/tv_series_model.dart';
 import 'package:netflix_clone/screens/download_page.dart';
 import 'package:netflix_clone/screens/home.dart';
 import 'package:netflix_clone/screens/more_screen.dart';
 import 'package:netflix_clone/screens/new_hot.dart';
 import 'package:netflix_clone/screens/search.dart';
 import 'package:netflix_clone/services/api_service.dart';
+import 'package:netflix_clone/widgets/common/animated_container.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -21,13 +23,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
   late Future<List<TopMovieIndia>> getMoviesIndia;
   late Future<List<Movies>> popular;
   late Future<List<Movies>> upcoming;
+  late Future<List<TvSeries>> tvSeries;
   List<Widget> screens = [];
+
   @override
   void initState() {
     getTopRated = ApiServices.getTopRated();
     getMoviesIndia = ApiServices.getTopMoviesIndia();
     popular = ApiServices.getPopularMovies();
     upcoming = ApiServices.getUpcomingMovies();
+    tvSeries = ApiServices.getTvSeries();
     // screens = [
     //   HomePage(
     //       getTopRated: getTopRated,
@@ -45,18 +50,24 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     Widget currentWidget = HomePage(
+        tvSeries: tvSeries,
         getTopRated: getTopRated,
         getMoviesIndia: getMoviesIndia,
         popular: popular,
         upcoming: upcoming);
     if (index == 0) {
       currentWidget = HomePage(
+          tvSeries: tvSeries,
           getTopRated: getTopRated,
           getMoviesIndia: getMoviesIndia,
           popular: popular,
           upcoming: upcoming);
     }
-    if (index == 1) currentWidget = const SearchPage();
+    if (index == 1) {
+      currentWidget = SearchPage(
+        popular: popular,
+      );
+    }
     if (index == 2) currentWidget = const NewAndHotPage();
     if (index == 3) currentWidget = const DownloadPage();
     if (index == 4) currentWidget = const MoreScreen();
@@ -72,22 +83,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         'assets/images/logo.png',
                         width: 120,
                       ),
-                actions: [
-                  const Icon(
+                actions: const [
+                  Icon(
                     Icons.cast,
                     size: 30,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 15,
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(7.0),
-                    child: Image.network(
-                      'https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg',
-                      width: 30,
-                    ),
-                  ),
-                  const SizedBox(
+                  MyAnimatedContainer(
+                      size: 35, selected: false, color: Colors.blue, name: ''),
+                  SizedBox(
                     width: 15,
                   ),
                 ],

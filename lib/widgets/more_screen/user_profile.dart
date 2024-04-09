@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/widgets/common/animated_container.dart';
 
 class UserProfileItem extends StatefulWidget {
   const UserProfileItem(
@@ -22,36 +23,19 @@ class _UserProfileItemState extends State<UserProfileItem> {
           GestureDetector(
             onTap: () {
               if (widget.screenChange != null) {
-                widget.screenChange!(); 
+                widget.screenChange!();
               }
               setState(() {
                 selected = !selected;
               });
             },
             child: Center(
-              child: AnimatedContainer(
-                decoration: BoxDecoration(
-                  border: selected
-                      ? Border.all(width: 2, color: Colors.white)
-                      : Border.all(),
-                  color: widget.color, // Your desired background color
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                width: selected ? 96.0 : 90.0,
-                height: selected ? 92.0 : 90.0,
-                alignment: selected
-                    ? Alignment.center
-                    : AlignmentDirectional.topCenter,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.fastOutSlowIn,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(widget.name == 'Kids'
-                      ? 'assets/images/image.png'
-                      : 'assets/images/smiley.png'),
-                ),
-              ),
-            ),
+                child: MyAnimatedContainer(
+              size: 89,
+              color: widget.color,
+              name: widget.name,
+              selected: selected,
+            )),
           ),
           Text(
             widget.name,

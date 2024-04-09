@@ -35,6 +35,7 @@ class _NewAndHotPageState extends State<NewAndHotPage> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(7.0),
                 child: CachedNetworkImage(
+                  
                   errorWidget: (context, url, error) => Icon(Icons.error),
                   imageUrl:
                       'https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg',

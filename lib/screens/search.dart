@@ -9,8 +9,8 @@ import 'package:netflix_clone/widgets/search_screen/search_item.dart';
 import 'package:netflix_clone/widgets/common/sub_list_heading.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
-
+  const SearchPage({super.key, required this.popular});
+  final Future<List<Movies>> popular;
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
@@ -77,12 +77,29 @@ class _SearchPageState extends State<SearchPage> {
           height: 20,
         ),
         searchQuery.isEmpty
-            ? Expanded(
-                child: ListView.builder(
-                    itemCount: poplularMovies.length,
-                    itemBuilder: (ctx, index) => SearchItem(
-                          movie: poplularMovies[index],
-                        )),
+            ? FutureBuilder(
+                future: widget.popular,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: Center(child: CircularProgressIndicator()),
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return const Expanded(
+                      child: Center(
+                        child: Text('Some Error Occured'),
+                      ),
+                    );
+                  }
+                  return Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (ctx, index) => SearchItem(
+                              movie: snapshot.data![index],
+                            )),
+                  );
+                },
               )
             : searchedItems.isNotEmpty
                 ? Expanded(

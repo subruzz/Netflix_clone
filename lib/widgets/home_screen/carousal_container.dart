@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/services/api_service.dart';
+import 'package:netflix_clone/models/tv_series_model.dart';
 import 'package:netflix_clone/widgets/home_screen/carousal.dart';
 import 'package:netflix_clone/widgets/home_screen/carousal_buttons.dart';
 
 class CarousalContainer extends StatelessWidget {
-  const CarousalContainer({super.key});
-
+  const CarousalContainer({super.key,required this.tvSeries});
+  final List<TvSeries> tvSeries;
   @override
   Widget build(BuildContext context) {
     return Stack(

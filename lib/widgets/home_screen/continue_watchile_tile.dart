@@ -21,6 +21,10 @@ class ContinueWatchingTile extends StatelessWidget {
             child: Column(
               children: [
                 Image.network(
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Placeholder(
+                        fallbackHeight: 160, color: Colors.grey);
+                  },
                   width: 200,
                   height: 160,
                   fit: BoxFit.cover,

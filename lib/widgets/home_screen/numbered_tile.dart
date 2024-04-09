@@ -21,7 +21,7 @@ class NumbereredTile extends StatelessWidget {
             child: Text(
                 style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center,
-                'Sorry, we were not able to load top 10 movies in India, Please try again later.'),
+                'Error Fetching Top 10 Movies'),
           );
         } else {
           return SizedBox(

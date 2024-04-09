@@ -27,7 +27,7 @@ class MovieTile extends StatelessWidget {
             child: Text(
                 style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center,
-                'Sorry, we were not able to load $heading Movies, Please try again later.'),
+                'Error Fetching $heading Movies'),
           );
         }
         return SizedBox(

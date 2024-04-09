@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class NewsAndHotitems extends StatelessWidget {
@@ -47,14 +48,29 @@ class NewsAndHotitems extends StatelessWidget {
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(imageUrl,height: size.height/2.5,width: double.infinity,fit: BoxFit.fill,),
+                CachedNetworkImage(
+                  errorWidget: (context, url, error) {
+                    return const Placeholder(
+                        fallbackHeight: 160, color: Colors.grey);
+                  },
+                  imageUrl: imageUrl,
+                  height: size.height / 2.5,
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: size.width * 0.4,
                       height: size.width * 0.2,
-                      child: Image.network(logoUrl),
+                      child: CachedNetworkImage(
+                        errorWidget: (context, url, error) {
+                          return const Placeholder(
+                              fallbackHeight: 160, color: Colors.grey);
+                        },
+                        imageUrl: logoUrl,
+                      ),
                     ),
                     const Spacer(),
                     const Column(
